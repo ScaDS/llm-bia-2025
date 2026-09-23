@@ -795,7 +795,7 @@ title="Print to PDF"
 <p>To demonstrate this, we need an image, a segmentation and a table of extracted features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../02_bia_bob/data/lund.tif&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">'../02_bia_bob/data/lund.tif'</span><span class="p">)</span>
 <span class="n">stackview</span><span class="o">.</span><span class="n">insight</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -821,7 +821,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeled_image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;../02_bia_bob/data/lund_labels.tif&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labeled_image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">'../02_bia_bob/data/lund_labels.tif'</span><span class="p">)</span>
 
 <span class="c1"># for reproducibility purposes, the segmented image was made using pyclesperanto:</span>
 <span class="c1">#background_sub_image = cle.top_hat_box(image, radius_x=15, radius_y=15, radius_z=0)</span>
@@ -854,9 +854,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">properties</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">labeled_image</span><span class="p">,</span> <span class="n">intensity_image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="p">[</span>
-    <span class="s1">&#39;mean_intensity&#39;</span><span class="p">,</span> <span class="s1">&#39;std_intensity&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;centroid&#39;</span><span class="p">,</span>  <span class="s1">&#39;area&#39;</span><span class="p">,</span> <span class="s1">&#39;feret_diameter_max&#39;</span><span class="p">,</span> 
-    <span class="s1">&#39;minor_axis_length&#39;</span><span class="p">,</span> <span class="s1">&#39;major_axis_length&#39;</span><span class="p">])</span>
+    <span class="s1">'mean_intensity'</span><span class="p">,</span> <span class="s1">'std_intensity'</span><span class="p">,</span>
+    <span class="s1">'centroid'</span><span class="p">,</span>  <span class="s1">'area'</span><span class="p">,</span> <span class="s1">'feret_diameter_max'</span><span class="p">,</span> 
+    <span class="s1">'minor_axis_length'</span><span class="p">,</span> <span class="s1">'major_axis_length'</span><span class="p">])</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">properties</span><span class="p">)</span>
 
@@ -872,8 +872,8 @@ title="Print to PDF"
 <span class="n">umap_coords</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">scaled_data</span><span class="p">)</span>
 
 <span class="c1"># Add UMAP coordinates to dataframe </span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;UMAP1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;UMAP2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'UMAP1'</span><span class="p">]</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'UMAP2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">umap_coords</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -996,7 +996,7 @@ title="Print to PDF"
 <span class="n">pre_selection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_objects</span><span class="p">)</span>
 <span class="n">pre_selection</span><span class="p">[:</span><span class="nb">int</span><span class="p">(</span><span class="n">num_objects</span><span class="o">/</span><span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">df</span><span class="p">[</span><span class="s2">&quot;selection&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_selection</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">"selection"</span><span class="p">]</span> <span class="o">=</span> <span class="n">pre_selection</span>
 </pre></div>
 </div>
 </div>
@@ -1009,8 +1009,8 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stackview</span><span class="o">.</span><span class="n">clusterplot</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
                      <span class="n">labels</span><span class="o">=</span><span class="n">labeled_image</span><span class="p">,</span>
                      <span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="p">,</span>
-                     <span class="n">column_x</span><span class="o">=</span><span class="s2">&quot;UMAP1&quot;</span><span class="p">,</span>
-                     <span class="n">column_y</span><span class="o">=</span><span class="s2">&quot;UMAP2&quot;</span><span class="p">,</span>
+                     <span class="n">column_x</span><span class="o">=</span><span class="s2">"UMAP1"</span><span class="p">,</span>
+                     <span class="n">column_y</span><span class="o">=</span><span class="s2">"UMAP2"</span><span class="p">,</span>
                      <span class="n">zoom_factor</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span>
                      <span class="n">markersize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
                      <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
@@ -1023,7 +1023,7 @@ title="Print to PDF"
 <p>Every time the user selects different data points, the selection in our dataframe is update</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;selection&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">"selection"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1124,7 +1124,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   

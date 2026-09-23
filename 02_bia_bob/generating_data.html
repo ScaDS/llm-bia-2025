@@ -782,7 +782,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bia_bob</span><span class="w"> </span><span class="kn">import</span> <span class="n">bob</span>
-<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;https://chat-ai.academiccloud.de/v1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;openai-gpt-oss-120b&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;KISSKI_API_KEY&#39;</span><span class="p">))</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">'https://chat-ai.academiccloud.de/v1'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'openai-gpt-oss-120b'</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'KISSKI_API_KEY'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -796,7 +796,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">bob</span> write code that generates a &quot;measurements.csv&quot; file with three columns &quot;label_ud&quot;, &quot;Area&quot;, and &quot;perimeter&quot; with normal distributed values.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">bob</span> write code that generates a "measurements.csv" file with three columns "label_ud", "Area", and "perimeter" with normal distributed values.
 </pre></div>
 </div>
 </div>
@@ -831,16 +831,16 @@ title="Print to PDF"
 
 <span class="c1"># 3. Build DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;label_ud&quot;</span><span class="p">:</span> <span class="n">label_ud</span><span class="p">,</span>
-    <span class="s2">&quot;Area&quot;</span><span class="p">:</span> <span class="n">area</span><span class="p">,</span>
-    <span class="s2">&quot;perimeter&quot;</span><span class="p">:</span> <span class="n">perimeter</span>
+    <span class="s2">"label_ud"</span><span class="p">:</span> <span class="n">label_ud</span><span class="p">,</span>
+    <span class="s2">"Area"</span><span class="p">:</span> <span class="n">area</span><span class="p">,</span>
+    <span class="s2">"perimeter"</span><span class="p">:</span> <span class="n">perimeter</span>
 <span class="p">})</span>
 
 <span class="c1"># 4. Save to CSV</span>
-<span class="n">csv_path</span> <span class="o">=</span> <span class="s2">&quot;measurements.csv&quot;</span>
+<span class="n">csv_path</span> <span class="o">=</span> <span class="s2">"measurements.csv"</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">csv_path</span><span class="si">}</span><span class="s2"> created with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">csv_path</span><span class="si">}</span><span class="s2"> created with </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="si">}</span><span class="s2"> rows."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -943,7 +943,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   

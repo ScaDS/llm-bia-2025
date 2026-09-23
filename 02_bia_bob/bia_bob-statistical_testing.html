@@ -802,7 +802,7 @@ LLMs make mistakes.</p>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bia_bob</span><span class="w"> </span><span class="kn">import</span> <span class="n">bob</span>
-<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;https://llm.scads.ai/v1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;openai/gpt-oss-120b&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SCADSAI_API_KEY&#39;</span><span class="p">))</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">'https://llm.scads.ai/v1'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'openai/gpt-oss-120b'</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'SCADSAI_API_KEY'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -837,31 +837,31 @@ are significantly different.
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># 1. Load the CSV file</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/data.csv'</span><span class="p">)</span>
 
 <span class="c1"># 2. Keep only rows where both A and B are present</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
 <span class="c1"># 3. Extract the two series</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'B'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># 4. Perform independent two‑sample t‑test</span>
-<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Welch&#39;s t‑test</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Welch's t‑test</span>
 
 <span class="c1"># 5. Output the results</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t‑statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p‑value: </span><span class="si">{</span><span class="n">p_val</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t‑statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"p‑value: </span><span class="si">{</span><span class="n">p_val</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">p_val</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&gt; The difference between columns A and B is statistically significant (α=0.05).&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"=&gt; The difference between columns A and B is statistically significant (α=0.05)."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&gt; No statistically significant difference detected (α=0.05).&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"=&gt; No statistically significant difference detected (α=0.05)."</span><span class="p">)</span>
 
 <span class="c1"># 6. Visual comparison: box‑plot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Box plot of columns A and B&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">boxplot</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Box plot of columns A and B'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Value'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -872,8 +872,8 @@ p‑value: 1.8428e-01
 =&gt; No statistically significant difference detected (α=0.05).
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\rober\AppData\Local\Temp\ipykernel_23620\3276436669.py:29: MatplotlibDeprecationWarning: The &#39;labels&#39; parameter of boxplot() has been renamed &#39;tick_labels&#39; since Matplotlib 3.9; support for the old name will be dropped in 3.11.
-  plt.boxplot([a, b], labels=[&#39;A&#39;, &#39;B&#39;])
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\rober\AppData\Local\Temp\ipykernel_23620\3276436669.py:29: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  plt.boxplot([a, b], labels=['A', 'B'])
 </pre></div>
 </div>
 <img alt="../_images/187beb073f31bb3bd29bf12a0a5e7295a752529ac1e60ad9ba62d5c73b0dd15d.png" src="../_images/187beb073f31bb3bd29bf12a0a5e7295a752529ac1e60ad9ba62d5c73b0dd15d.png" />
@@ -897,9 +897,9 @@ Plot histograms for A and B
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assuming df, a, b are already defined from the previous step.</span>
 <span class="c1"># If not, uncomment the following lines to load them again:</span>
 <span class="c1"># import pandas as pd</span>
-<span class="c1"># df = pd.read_csv(&#39;data/data.csv&#39;)[[&#39;A&#39;,&#39;B&#39;]].dropna()</span>
-<span class="c1"># a = df[&#39;A&#39;].values</span>
-<span class="c1"># b = df[&#39;B&#39;].values</span>
+<span class="c1"># df = pd.read_csv('data/data.csv')[['A','B']].dropna()</span>
+<span class="c1"># a = df['A'].values</span>
+<span class="c1"># b = df['B'].values</span>
 
 <span class="c1"># Determine a common bin range for both histograms</span>
 <span class="n">min_val</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
@@ -910,17 +910,17 @@ Plot histograms for A and B
 
 <span class="c1"># Histogram for column A</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Column A&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'steelblue'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Histogram of Column A'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Value'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
 
 <span class="c1"># Histogram for column B</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;indianred&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram of Column B&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="n">min_val</span><span class="p">,</span> <span class="n">max_val</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'indianred'</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Histogram of Column B'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Value'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Frequency'</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -966,12 +966,12 @@ pre-conditions are met.
 <span class="c1"># Note: pandas (pd), numpy (np), and ttest_ind are already available.</span>
 
 <span class="c1"># 1. Load data (keep original df/a/b untouched)</span>
-<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;data/data.csv&#39;</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">'data/data.csv'</span>
 <span class="n">df_raw</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span>
 <span class="c1"># keep only rows where both A and B are present</span>
-<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df_raw</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">a_vals</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">b_vals</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df_raw</span><span class="p">[[</span><span class="s1">'A'</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">a_vals</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">'A'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">b_vals</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">'B'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="c1"># 2. Normality tests (Shapiro‑Wilk)</span>
 <span class="n">shapiro_a_stat</span><span class="p">,</span> <span class="n">shapiro_a_p</span> <span class="o">=</span> <span class="n">shapiro</span><span class="p">(</span><span class="n">a_vals</span><span class="p">)</span>
@@ -984,33 +984,33 @@ pre-conditions are met.
 <span class="k">if</span> <span class="n">shapiro_a_p</span> <span class="o">&gt;</span> <span class="mf">0.05</span> <span class="ow">and</span> <span class="n">shapiro_b_p</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
     <span class="c1"># both distributions look normal</span>
     <span class="k">if</span> <span class="n">lev_p</span> <span class="o">&gt;</span> <span class="mf">0.05</span><span class="p">:</span>
-        <span class="n">test_name</span> <span class="o">=</span> <span class="s2">&quot;Student&#39;s t‑test (equal variances)&quot;</span>
+        <span class="n">test_name</span> <span class="o">=</span> <span class="s2">"Student's t‑test (equal variances)"</span>
         <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">a_vals</span><span class="p">,</span> <span class="n">b_vals</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">test_name</span> <span class="o">=</span> <span class="s2">&quot;Welch&#39;s t‑test (unequal variances)&quot;</span>
+        <span class="n">test_name</span> <span class="o">=</span> <span class="s2">"Welch's t‑test (unequal variances)"</span>
         <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">a_vals</span><span class="p">,</span> <span class="n">b_vals</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># at least one non‑normal → use non‑parametric test</span>
-    <span class="n">test_name</span> <span class="o">=</span> <span class="s2">&quot;Mann‑Whitney U test (non‑parametric)&quot;</span>
+    <span class="n">test_name</span> <span class="o">=</span> <span class="s2">"Mann‑Whitney U test (non‑parametric)"</span>
     <span class="c1"># two-sided test</span>
-    <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">a_vals</span><span class="p">,</span> <span class="n">b_vals</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">&#39;two-sided&#39;</span><span class="p">)</span>
+    <span class="n">t_stat</span><span class="p">,</span> <span class="n">p_val</span> <span class="o">=</span> <span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">a_vals</span><span class="p">,</span> <span class="n">b_vals</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s1">'two-sided'</span><span class="p">)</span>
 
 <span class="c1"># 5. Print report</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Assumption checks ===&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shapiro‑Wilk A:  statistic=</span><span class="si">{</span><span class="n">shapiro_a_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">shapiro_a_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> &quot;</span>
-      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;normal&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">shapiro_a_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;non‑normal&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shapiro‑Wilk B:  statistic=</span><span class="si">{</span><span class="n">shapiro_b_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">shapiro_b_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> &quot;</span>
-      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;normal&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">shapiro_b_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;non‑normal&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Levene variance test: statistic=</span><span class="si">{</span><span class="n">lev_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">lev_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> &quot;</span>
-      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;equal variances&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">lev_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;unequal variances&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Final hypothesis test ===&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test used: </span><span class="si">{</span><span class="n">test_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Statistic = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P‑value   = </span><span class="si">{</span><span class="n">p_val</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"=== Assumption checks ==="</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shapiro‑Wilk A:  statistic=</span><span class="si">{</span><span class="n">shapiro_a_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">shapiro_a_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> "</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'normal'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">shapiro_a_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'non‑normal'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shapiro‑Wilk B:  statistic=</span><span class="si">{</span><span class="n">shapiro_b_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">shapiro_b_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> "</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'normal'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">shapiro_b_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'non‑normal'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Levene variance test: statistic=</span><span class="si">{</span><span class="n">lev_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">lev_p</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2"> "</span>
+      <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'equal variances'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">lev_p</span><span class="o">&gt;</span><span class="mf">0.05</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'unequal variances'</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== Final hypothesis test ==="</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Test used: </span><span class="si">{</span><span class="n">test_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Statistic = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"P‑value   = </span><span class="si">{</span><span class="n">p_val</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">p_val</span> <span class="o">&lt;</span> <span class="mf">0.05</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&gt; Significant difference between columns A and B (α=0.05).&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"=&gt; Significant difference between columns A and B (α=0.05)."</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&gt; No significant difference detected (α=0.05).&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"=&gt; No significant difference detected (α=0.05)."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1138,7 +1138,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   

@@ -833,7 +833,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load image</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">&#39;data/blobs.tif&#39;</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="s1">'data/blobs.tif'</span><span class="p">)</span>
 
 <span class="c1"># Show the raw image (first slice if 3‑D)</span>
 <span class="n">stackview</span><span class="o">.</span><span class="n">insight</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
@@ -877,7 +877,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\rober\miniforge3\envs\bob-env\Lib\site-packages\stackview\_static_view.py:107: RuntimeWarning: Converting input from bool to &lt;class &#39;numpy.uint8&#39;&gt; for compatibility.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\rober\miniforge3\envs\bob-env\Lib\site-packages\stackview\_static_view.py:107: RuntimeWarning: Converting input from bool to &lt;class 'numpy.uint8'&gt; for compatibility.
   h, _ = np.histogram(self, bins=num_bins)
 </pre></div>
 </div>
@@ -939,7 +939,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define properties to measure</span>
-<span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;area&#39;</span><span class="p">]</span>
+<span class="n">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'label'</span><span class="p">,</span> <span class="s1">'area'</span><span class="p">]</span>
 
 <span class="c1"># Compute measurements</span>
 <span class="n">measurements</span> <span class="o">=</span> <span class="n">regionprops_table</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span>
@@ -1009,8 +1009,8 @@ title="Print to PDF"
 <p>We calculate the mean area of all detected blobs and print the result.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_area</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average blob area: </span><span class="si">{</span><span class="n">average_area</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> pixels&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_area</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'area'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average blob area: </span><span class="si">{</span><span class="n">average_area</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> pixels"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1128,7 +1128,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   

@@ -784,10 +784,10 @@ First, we introduce some modules, variables and a function. Further down in the 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;Hello&quot;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s2">"Hello"</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">my_custom_function</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Hello world"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -841,7 +841,7 @@ If the user asks for those simple tasks, use these code snippets.
       stackview.animate(image)
 
     * Save an animation / timelapse stored in variable `image` with specified frame delay to a file.
-      stackview.animate(image, filename=&quot;output.gif&quot;, frame_delay_ms=100)
+      stackview.animate(image, filename="output.gif", frame_delay_ms=100)
 
     * Display an image stored in a variable `image` (this also works with label images). Prefer stackview.insight over matplotlib.pyplot.imshow!
       stackview.insight(image)
@@ -879,7 +879,7 @@ masks, flows, styles = model.eval(image,
                                   batch_size=32,
                                   flow_threshold=0.4,
                                   cellprob_threshold=0.0,
-                                  normalize={&quot;tile_norm_blocksize&quot;: 0})
+                                  normalize={"tile_norm_blocksize": 0})
 label_image = masks.astype(np.uint32)
 ```
 
@@ -907,7 +907,7 @@ label_image = masks.astype(np.uint32)
     ```
     import pandas as pd
     from skimage.measure import regionprops_table
-    properties = [&#39;label&#39;, &#39;area&#39;, &#39;mean_intensity&#39;] # add more properties if needed
+    properties = ['label', 'area', 'mean_intensity'] # add more properties if needed
     measurements = regionprops_table(label_image, intensity_image=image, properties=properties)
     df = pd.DataFrame(measurements)
     ```
@@ -1048,7 +1048,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   

@@ -782,7 +782,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bia_bob</span><span class="w"> </span><span class="kn">import</span> <span class="n">bob</span>
-<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">&#39;https://chat-ai.academiccloud.de/v1&#39;</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;openai-gpt-oss-120b&#39;</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;KISSKI_API_KEY&#39;</span><span class="p">))</span>
+<span class="n">bob</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">endpoint</span><span class="o">=</span><span class="s1">'https://chat-ai.academiccloud.de/v1'</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">'openai-gpt-oss-120b'</span><span class="p">,</span> <span class="n">api_key</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'KISSKI_API_KEY'</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -800,7 +800,7 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bob</span>
 write python code that
 * opens the file vgsales.csv using pandas
-* if the file doesn&#39;t exist, open it from https://zenodo.org/records/5898311/files/vgsales.csv?download=1 
+* if the file doesn't exist, open it from https://zenodo.org/records/5898311/files/vgsales.csv?download=1 
   and save it as vgsales.csv
 </pre></div>
 </div>
@@ -817,16 +817,16 @@ If the file is missing, it downloads the CSV from the Zenodo URL, saves it local
 <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span>
 
 <span class="c1"># 1. Define file name and remote URL</span>
-<span class="n">local_file</span> <span class="o">=</span> <span class="s2">&quot;vgsales.csv&quot;</span>
+<span class="n">local_file</span> <span class="o">=</span> <span class="s2">"vgsales.csv"</span>
 <span class="n">remote_url</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;https://zenodo.org/records/5898311/files/vgsales.csv?download=1&quot;</span>
+    <span class="s2">"https://zenodo.org/records/5898311/files/vgsales.csv?download=1"</span>
 <span class="p">)</span>
 
 <span class="c1"># 2. Download if missing</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">local_file</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File &#39;</span><span class="si">{</span><span class="n">local_file</span><span class="si">}</span><span class="s2">&#39; not found. Downloading from Zenodo...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"File '</span><span class="si">{</span><span class="n">local_file</span><span class="si">}</span><span class="s2">' not found. Downloading from Zenodo..."</span><span class="p">)</span>
     <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">remote_url</span><span class="p">,</span> <span class="n">local_file</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Download complete.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Download complete."</span><span class="p">)</span>
 
 <span class="c1"># 3. Load into pandas DataFrame</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">local_file</span><span class="p">)</span>
@@ -861,25 +861,25 @@ When a publisher is chosen, a bar chart is displayed directly below the drop‑d
 <span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
 
 <span class="c1"># Ensure the CSV exists – download only if missing</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">&quot;vgsales.csv&quot;</span><span class="p">):</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s2">"vgsales.csv"</span><span class="p">):</span>
     <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span>
-        <span class="s2">&quot;https://zenodo.org/records/5898311/files/vgsales.csv?download=1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;vgsales.csv&quot;</span>
+        <span class="s2">"https://zenodo.org/records/5898311/files/vgsales.csv?download=1"</span><span class="p">,</span>
+        <span class="s2">"vgsales.csv"</span>
     <span class="p">)</span>
 
-<span class="c1"># Load the dataframe only if it hasn&#39;t been defined yet</span>
-<span class="k">if</span> <span class="s2">&quot;df&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;vgsales.csv&quot;</span><span class="p">)</span>
+<span class="c1"># Load the dataframe only if it hasn't been defined yet</span>
+<span class="k">if</span> <span class="s2">"df"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">globals</span><span class="p">():</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"vgsales.csv"</span><span class="p">)</span>
 
 <span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># 2. Widget creation</span>
 <span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># Dropdown with all unique publishers (sorted for readability)</span>
 <span class="n">publisher_dropdown</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span>
-    <span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Publisher&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
-    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Publisher:&quot;</span><span class="p">,</span>
+    <span class="n">options</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Publisher"</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()),</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">"Publisher:"</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;300px&#39;</span><span class="p">)</span>
+    <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">'300px'</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Output area for the bar plot</span>
@@ -890,10 +890,10 @@ When a publisher is chosen, a bar chart is displayed directly below the drop‑d
 <span class="c1"># ------------------------------------------------------------</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">update_plot</span><span class="p">(</span><span class="n">change</span><span class="p">):</span>
     <span class="c1"># Only react to actual value changes</span>
-    <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">change</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">'value'</span><span class="p">:</span>
         <span class="k">return</span>
     
-    <span class="n">selected_pub</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s1">&#39;new&#39;</span><span class="p">]</span>
+    <span class="n">selected_pub</span> <span class="o">=</span> <span class="n">change</span><span class="p">[</span><span class="s1">'new'</span><span class="p">]</span>
     
     <span class="k">with</span> <span class="n">plot_out</span><span class="p">:</span>
         <span class="c1"># Clear previous plot</span>
@@ -902,22 +902,22 @@ When a publisher is chosen, a bar chart is displayed directly below the drop‑d
             <span class="k">return</span>
         
         <span class="c1"># Filter rows belonging to the selected publisher</span>
-        <span class="n">sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Publisher&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">selected_pub</span><span class="p">]</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"Publisher"</span><span class="p">]</span> <span class="o">==</span> <span class="n">selected_pub</span><span class="p">]</span>
         
         <span class="c1"># Sum sales for each region (ignore NaNs)</span>
-        <span class="n">sales</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[[</span><span class="s2">&quot;NA_Sales&quot;</span><span class="p">,</span> <span class="s2">&quot;EU_Sales&quot;</span><span class="p">,</span> <span class="s2">&quot;JP_Sales&quot;</span><span class="p">,</span> <span class="s2">&quot;Other_Sales&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">sales</span> <span class="o">=</span> <span class="n">sub</span><span class="p">[[</span><span class="s2">"NA_Sales"</span><span class="p">,</span> <span class="s2">"EU_Sales"</span><span class="p">,</span> <span class="s2">"JP_Sales"</span><span class="p">,</span> <span class="s2">"Other_Sales"</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         
         <span class="c1"># Plot</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-        <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sales</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total sales for publisher: </span><span class="si">{</span><span class="n">selected_pub</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Sales (million units)&quot;</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Region&quot;</span><span class="p">)</span>
+        <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sales</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">"viridis"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total sales for publisher: </span><span class="si">{</span><span class="n">selected_pub</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Sales (million units)"</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Region"</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">sales</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>  <span class="c1"># a little headroom</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="c1"># Attach the observer</span>
-<span class="n">publisher_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_plot</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
+<span class="n">publisher_dropdown</span><span class="o">.</span><span class="n">observe</span><span class="p">(</span><span class="n">update_plot</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="s1">'value'</span><span class="p">)</span>
 
 <span class="c1"># ------------------------------------------------------------</span>
 <span class="c1"># 4. Display the UI</span>
@@ -1025,7 +1025,7 @@ By Robert Haase
   
   <div class="footer-item">
     <p class="last-updated">
-Last updated on 2025-09-14.<br>
+Last updated on 2026-09-23.<br>
 </p>
   </div>
   
